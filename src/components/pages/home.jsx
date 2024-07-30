@@ -10,8 +10,8 @@ function Home() {
     <>
       <section className="bg-muted py-12 md:py-24">
         <div className="container grid gap-10 px-4 md:grid-cols-2 md:gap-16">
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+          <div className="space-y-4 ml-5">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl ">
               Discover and Reward Exceptional Content
             </h1>
             <p className="text-muted-foreground md:text-xl">
@@ -46,7 +46,7 @@ function Home() {
               className="rounded-lg object-cover"
             />
           </div>
-          <div className="space-y-4">
+          <div className="space-y-4 mr-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Empower Content Creators
             </h2>
@@ -86,7 +86,7 @@ function Home() {
       </section>
       <section className="bg-muted py-12 md:py-24">
         <div className="container grid gap-10 px-4 md:grid-cols-2 md:gap-16">
-          <div className="space-y-4">
+          <div className="space-y-4 ml-5">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Engage and Reward Reviewers
             </h2>

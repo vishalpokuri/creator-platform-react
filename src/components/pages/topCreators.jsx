@@ -7,7 +7,7 @@ export default function Creators() {
   return (
     <>
       <div className="flex">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl items-center">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl  m-auto mt-6">
           Here are our top creators
         </h2>
       </div>
@@ -136,7 +136,7 @@ export default function Creators() {
                     <AvatarImage src="/placeholder-user.jpg" />
                     <AvatarFallback>JD</AvatarFallback>
                   </Avatar>
-                  <div>
+                  <div className="m-4">
                     <div className="font-medium">John Doe</div>
                     <div className="text-xs text-muted-foreground">Creator</div>
                   </div>
@@ -161,7 +161,7 @@ export default function Creators() {
                     <AvatarImage src="/placeholder-user.jpg" />
                     <AvatarFallback>SA</AvatarFallback>
                   </Avatar>
-                  <div>
+                  <div className="m-4">
                     <div className="font-medium">Sarah Anderson</div>
                     <div className="text-xs text-muted-foreground">Creator</div>
                   </div>
@@ -186,7 +186,7 @@ export default function Creators() {
                     <AvatarImage src="/placeholder-user.jpg" />
                     <AvatarFallback>MJ</AvatarFallback>
                   </Avatar>
-                  <div>
+                  <div className="m-4">
                     <div className="font-medium">Michael Johnson</div>
                     <div className="text-xs text-muted-foreground">Creator</div>
                   </div>
@@ -225,7 +225,7 @@ export default function Creators() {
                     <AvatarImage src="/placeholder-user.jpg" />
                     <AvatarFallback>JD</AvatarFallback>
                   </Avatar>
-                  <div>
+                  <div className="m-4">
                     <div className="font-medium">John Doe</div>
                     <div className="text-xs text-muted-foreground">
                       Reviewer
@@ -252,7 +252,7 @@ export default function Creators() {
                     <AvatarImage src="/placeholder-user.jpg" />
                     <AvatarFallback>SA</AvatarFallback>
                   </Avatar>
-                  <div>
+                  <div className="m-4">
                     <div className="font-medium">Sarah Anderson</div>
                     <div className="text-xs text-muted-foreground">
                       Reviewer
@@ -279,7 +279,7 @@ export default function Creators() {
                     <AvatarImage src="/placeholder-user.jpg" />
                     <AvatarFallback>MJ</AvatarFallback>
                   </Avatar>
-                  <div>
+                  <div className="m-4">
                     <div className="font-medium">Michael Johnson</div>
                     <div className="text-xs text-muted-foreground">
                       Reviewer
