@@ -7,8 +7,10 @@ import Footer from "./components/ui/footer";
 import PaletteIcon from "./components/ui/paletteicon";
 // import { useNavigate } from "react-router-dom";
 import "./App.css";
-import LoginPage from "./components/pages/loginpage";
+import LoginPageCreator from "./components/pages/loginpageCreator";
+import LoginPageReader from "./components/pages/loginpageReader";
 import Creators from "./components/pages/topCreators";
+import Trending from "./components/pages/trending";
 const OKTO_CLIENT_API = " fdf89bfd-7097-490b-b782-9f949fa6c1aa";
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
                 <Link to="/top-creators" className="hover:text-primary">
                   Top Creators
                 </Link>
-                <Link to="#" className="hover:text-primary">
+                <Link to="/trending" className="hover:text-primary">
                   Trending 🔥
                 </Link>
                 <Link to="#" className="hover:text-primary">
@@ -44,8 +46,10 @@ function App() {
             <Routes>
               <Route element={<Home />} path="/" />
 
-              <Route path="/loginpage" element={<LoginPage />} />
+              <Route path="/creator-loginpage" element={<LoginPageCreator />} />
+              <Route path="/reader-loginpage" element={<LoginPageReader />} />
               <Route path="/top-creators" element={<Creators />} />
+              <Route path="/trending" element={<Trending />} />
             </Routes>
           </main>
         </div>

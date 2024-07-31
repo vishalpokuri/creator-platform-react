@@ -3,9 +3,13 @@ import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
-  const handleSignupClick = () => {
-    navigate("/loginpage");
+  const handleSignupClickcreator = () => {
+    navigate("/creator-loginpage");
   };
+  const handleSignupClickReader = () => {
+    navigate("/reader-loginpage");
+  };
+
   return (
     <>
       <section className="bg-muted py-12 md:py-24">
@@ -20,8 +24,12 @@ function Home() {
               and incentives.
             </p>
             <div className="flex gap-4">
-              <Button onClick={handleSignupClick}>Join as a Creator</Button>
-              <Button variant="outline">Become a Reviewer</Button>
+              <Button onClick={handleSignupClickcreator}>
+                Join as a Creator
+              </Button>
+              <Button onClick={handleSignupClickReader} variant="outline">
+                Become a Reviewer
+              </Button>
             </div>
           </div>
           <div>
@@ -145,8 +153,12 @@ function Home() {
               opportunities.
             </p>
             <div className="flex justify-center gap-4">
-              <Button>Join as a Creator</Button>
-              <Button variant="outline">Become a Reviewer</Button>
+              <Button onClick={handleSignupClickcreator}>
+                Join as a Creator
+              </Button>
+              <Button onClick={handleSignupClickReader} variant="outline">
+                Become a Reviewer
+              </Button>
             </div>
           </div>
         </div>
