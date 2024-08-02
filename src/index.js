@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
 import { GoogleOAuthProvider } from "@react-oauth/google";
+
 const GOOGLE_CLIENT_ID =
   "440199138208-ntrbuiioh1hvntog5q6fc2lg0m42uc77.apps.googleusercontent.com";
 const root = ReactDOM.createRoot(document.getElementById("root"));
