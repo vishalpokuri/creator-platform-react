@@ -3,6 +3,10 @@ import { CardContent, Card } from "../ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 import { Link } from "react-router-dom";
+import bonk from "../images/Bonk.jpg";
+import lostmy from "../images/actuallostmy300.jpg";
+import ev from "../images/ev.webp";
+import medium from "../images/mediumicon.png";
 export default function Creators() {
   return (
     <>
@@ -24,21 +28,22 @@ export default function Creators() {
             </Link>
           </div>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <Card>
-              <CardContent>
+            <Card className="flex flex-col h-full">
+              <CardContent className="flex flex-col h-full">
                 <img
-                  src="/placeholder.svg"
+                  src={lostmy}
                   alt="Featured Content"
                   width={400}
                   height={225}
-                  className="aspect-video rounded-md object-cover"
+                  className="aspect-video rounded-md object-cover mt-6"
+                  style={{ width: "100%", height: "225px" }} // Ensuring fixed height
                 />
-                <div className="mt-4">
-                  <h3 className="text-lg font-bold">Painting Masterclass</h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Learn the fundamentals of painting from a professional
-                    artist.
-                  </p>
+                <div className="flex flex-col flex-1 mt-auto">
+                  <div className="flex flex-col mt-auto">
+                    <h3 className="text-lg font-bold mt-2">
+                      I lost my Seed Phrase, A $300,000 story!
+                    </h3>
+                  </div>
                   <div className="mt-4 flex items-center gap-2">
                     <Avatar className="h-8 w-8 border">
                       <AvatarImage src="/placeholder-user.jpg" />
@@ -54,52 +59,62 @@ export default function Creators() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent>
-                <img
-                  src="/placeholder.svg"
-                  alt="Featured Content"
-                  width={400}
-                  height={225}
-                  className="aspect-video rounded-md object-cover"
-                />
-                <div className="mt-4">
-                  <h3 className="text-lg font-bold">Photography Workshop</h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Capture stunning images with our expert photography tips.
-                  </p>
-                  <div className="mt-4 flex items-center gap-2">
-                    <Avatar className="h-8 w-8 border">
-                      <AvatarImage src="/placeholder-user.jpg" />
-                      <AvatarFallback>SA</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <div className="font-medium">Sarah Anderson</div>
-                      <div className="text-xs text-muted-foreground">
-                        Creator
+            <Link to="/j23oi2a8j-089afa3">
+              <Card className="flex flex-col h-full">
+                <CardContent className="flex flex-col h-full">
+                  <img
+                    src={ev}
+                    alt="Featured Content"
+                    width={400}
+                    height={225}
+                    className="aspect-video rounded-md object-cover mt-6"
+                    style={{ width: "100%", height: "225px" }}
+                  />
+                  <div className="flex flex-col flex-1 mt-auto">
+                    <div className="flex flex-col mt-auto">
+                      <h3 className="text-lg font-bold mt-2">
+                        Are EVs really saving our Earth?
+                      </h3>
+                    </div>
+                    <div className="mt-4 flex items-center gap-2">
+                      <Avatar className="h-8 w-8 border">
+                        <AvatarImage src="/placeholder-user.jpg" />
+                        <AvatarFallback>VP</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <div className="font-medium">Vishal Pokuri</div>
+                        <div className="text-xs text-muted-foreground">
+                          Creator
+                        </div>
                       </div>
+
+                      <img
+                        src={medium}
+                        alt="Medium"
+                        style={{ width: "30px", height: "30px" }}
+                        className="aspect-video rounded-md object-cover mt-6 ml-auto"
+                      />
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent>
+                </CardContent>
+              </Card>
+            </Link>
+            <Card className="flex flex-col h-full">
+              <CardContent className="flex flex-col h-full">
                 <img
-                  src="/placeholder.svg"
+                  src={bonk}
                   alt="Featured Content"
                   width={400}
-                  height={225}
-                  className="aspect-video rounded-md object-cover"
+                  height={200}
+                  className="aspect-video rounded-md object-cover mt-6"
+                  style={{ width: "100%", height: "225px" }} // Ensuring fixed height
                 />
-                <div className="mt-4">
-                  <h3 className="text-lg font-bold">
-                    Graphic Design Essentials
-                  </h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Master the fundamentals of graphic design with this
-                    comprehensive course.
-                  </p>
+                <div className="flex flex-col flex-1 mt-auto">
+                  <div>
+                    <h3 className="text-lg font-bold mt-2">
+                      BONK!! BONK!! BONK!!
+                    </h3>
+                  </div>
                   <div className="mt-4 flex items-center gap-2">
                     <Avatar className="h-8 w-8 border">
                       <AvatarImage src="/placeholder-user.jpg" />

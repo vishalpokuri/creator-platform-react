@@ -81,7 +81,7 @@ function LoginPageCreator() {
         } catch (error) {
           console.error("Error fetching user info:", error);
         }
-        navigate("/home");
+        navigate("/dashboard");
       }
       //error handling
       if (error) {

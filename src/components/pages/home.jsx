@@ -1,6 +1,9 @@
 import { Card, CardHeader, CardTitle, CardDescription } from "../ui/card";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
+import cover from "../images/cover_photo.jpg";
+import content from "../images/content.avif";
+import review from "../images/review.jpeg";
 function Home() {
   const navigate = useNavigate();
   const handleSignupClickcreator = () => {
@@ -19,9 +22,11 @@ function Home() {
               Discover and Reward Exceptional Content
             </h1>
             <p className="text-muted-foreground md:text-xl">
+              <br />
               Our platform empowers content creators to share their work and
               connect with engaged reviewers who can provide valuable feedback
-              and incentives.
+              and incentives. <br /> <br /> Mint, Review, and Earn: Showcase
+              Your Insights and Get Rewarded with NFT Proofs!
             </p>
             <div className="flex gap-4">
               <Button onClick={handleSignupClickcreator}>
@@ -34,7 +39,7 @@ function Home() {
           </div>
           <div>
             <img
-              src="/placeholder.svg"
+              src={cover}
               width={600}
               height={400}
               alt="Hero"
@@ -47,11 +52,11 @@ function Home() {
         <div className="container grid gap-10 px-4 md:grid-cols-2 md:gap-16">
           <div>
             <img
-              src="/placeholder.svg"
+              src={content}
               width={600}
               height={400}
               alt="Creators"
-              className="rounded-lg object-cover"
+              className="rounded-lg object-cover ml-12"
             />
           </div>
           <div className="space-y-4 mr-6">
@@ -132,7 +137,7 @@ function Home() {
           </div>
           <div>
             <img
-              src="/placeholder.svg"
+              src={review}
               width={600}
               height={400}
               alt="Reviewers"

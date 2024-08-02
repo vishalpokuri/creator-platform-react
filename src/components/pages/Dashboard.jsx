@@ -141,7 +141,9 @@ export default function Dashboard() {
                         className="object-cover aspect-video rounded-md"
                       />
                       <div className="flex-1">
-                        <div className="font-medium">Creative Masterpiece</div>
+                        <div className="font-medium">
+                          Why did the chicken cross the road? To buy Solana
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           4.8 stars
                         </div>
@@ -156,7 +158,9 @@ export default function Dashboard() {
                         className="object-cover aspect-video rounded-md"
                       />
                       <div className="flex-1">
-                        <div className="font-medium">Inspiring Landscapes</div>
+                        <div className="font-medium">
+                          I'm unemployed for over 2 years as a SDE
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           4.6 stars
                         </div>
@@ -171,7 +175,9 @@ export default function Dashboard() {
                         className="object-cover aspect-video rounded-md"
                       />
                       <div className="flex-1">
-                        <div className="font-medium">Stunning Visuals</div>
+                        <div className="font-medium">
+                          SearchGPT, we saw this one coming.......
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           4.5 stars
                         </div>
@@ -205,7 +211,9 @@ export default function Dashboard() {
                         className="object-cover aspect-video rounded-md"
                       />
                       <div className="flex-1">
-                        <div className="font-medium">Creative Masterpiece</div>
+                        <div className="font-medium">
+                          Why did the chicken cross the road? To buy Solana
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           4.8 stars
                         </div>
@@ -220,7 +228,9 @@ export default function Dashboard() {
                         className="object-cover aspect-video rounded-md"
                       />
                       <div className="flex-1">
-                        <div className="font-medium">Inspiring Landscapes</div>
+                        <div className="font-medium">
+                          I'm unemployed for over 2 years as a SDE
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           4.6 stars
                         </div>
@@ -235,7 +245,9 @@ export default function Dashboard() {
                         className="object-cover aspect-video rounded-md"
                       />
                       <div className="flex-1">
-                        <div className="font-medium">Stunning Visuals</div>
+                        <div className="font-medium">
+                          SearchGPT, we saw this one coming.......
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           4.5 stars
                         </div>
