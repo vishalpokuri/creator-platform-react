@@ -12,6 +12,7 @@ import Creators from "./components/pages/topCreators";
 import Trending from "./components/pages/trending";
 import Header from "./components/pages/header";
 import Dashboard from "./components/pages/Dashboard";
+import SamplePost from "./components/pages/Samplepost";
 
 export const ProfileContext = React.createContext();
 
@@ -21,7 +22,6 @@ function App() {
   console.log(localStorage.getItem("userProfile"));
   const [profile, setProfile] = useState(null);
   useEffect(() => {
-    // Check if profile data exists in localStorage
     const storedProfile = localStorage.getItem("userProfile");
     if (storedProfile) {
       setProfile(JSON.parse(storedProfile));
@@ -51,6 +51,7 @@ function App() {
                 <Route path="/trending" element={<Trending />} />
                 <Route path="/home" element={<HomePageLogin />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/j23oi2a8j-089afa3" element={<SamplePost />} />
               </Routes>
             </main>
           </div>

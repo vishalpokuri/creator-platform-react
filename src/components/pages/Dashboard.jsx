@@ -6,6 +6,10 @@ import {
   CardContent,
   CardDescription,
 } from "../ui/card";
+import { Link } from "react-router-dom";
+import photo1 from "../images/photo1.webp";
+import photo2 from "../images/photo2.avif";
+import photo3 from "../images/photo4.avif";
 import { useOkto } from "okto-sdk-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { ProfileContext } from "../../App";
@@ -20,7 +24,7 @@ export default function Dashboard() {
       console.log(walletsData);
       if (typeof walletsData === "object" && walletsData !== null) {
         setWallets(walletsData);
-        setWallets(walletsData);
+        console.log(wallets);
       } else {
         console.error(
           "Expected walletsData to be an object, got:",
@@ -35,6 +39,7 @@ export default function Dashboard() {
   useEffect(() => {
     fetchWallets();
   }, []);
+
   return (
     <>
       <main className="flex flex-1 flex-col gap-8 p-4 sm:px-6 sm:py-0 md:gap-12 md:p-10">
@@ -42,16 +47,21 @@ export default function Dashboard() {
           <div className="col-span-1">
             <div className="grid gap-6">
               <Card>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <Avatar className="w-20 h-20 border">
-                    <AvatarImage src={profile.picture} />
-                    <AvatarFallback>AC</AvatarFallback>
-                  </Avatar>
-                  <div className="grid gap-1">
-                    <CardTitle>{profile.name}</CardTitle>
-                    <CardDescription>@vishal_pok</CardDescription>
-                  </div>
-                </CardHeader>
+                <div className="justify-between flex flex-row">
+                  <CardHeader className="flex flex-row items-center gap-4 ">
+                    <Avatar className="w-20 h-20 border">
+                      <AvatarImage src={profile.picture} />
+                      <AvatarFallback>AC</AvatarFallback>
+                    </Avatar>
+                    <div className="grid gap-1">
+                      <CardTitle>{profile.name}</CardTitle>
+                      <CardDescription>@vishal_pok</CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardHeader>
+                    <CardTitle>🖌️🖼️ Creator</CardTitle>
+                  </CardHeader>
+                </div>
                 <CardContent>
                   <div className="grid row-start-1 col-start-1 row-end col-end-4 gap-4">
                     <div className="grid grid-cols-1 gap-4">
@@ -72,36 +82,36 @@ export default function Dashboard() {
             </div>
             <div className="grid grid-cols-4 gap-8 mt-4">
               <Card className="flex items-center">
-                <CardHeader>
+                <CardHeader className="p-3">
                   <CardTitle className="text-sm">My Content</CardTitle>
                 </CardHeader>
-                <CardContent className="flex items-center justify-center">
+                <CardContent className="flex items-center p-3">
                   <span className="text-3xl font-semibold">25</span>
                 </CardContent>
               </Card>
               <Card className="flex items-center">
-                <CardHeader>
+                <CardHeader className="p-3">
                   <CardTitle className="text-sm">Total Reviews</CardTitle>
                 </CardHeader>
-                <CardContent className="flex items-center justify-center">
+                <CardContent className="flex items-center p-3">
                   <span className="text-3xl font-semibold">50</span>
                 </CardContent>
               </Card>
               <Card className="flex items-center justify-around">
-                <CardHeader>
+                <CardHeader className="p-3">
                   <CardTitle className="text-sm">
                     Total Content Shared
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex items-center  ">
+                <CardContent className="flex items-center p-3 ">
                   <span className="text-xl font-semibold ">100</span>
                 </CardContent>
               </Card>
               <Card className="flex items-center justify-around">
-                <CardHeader>
+                <CardHeader className="p-3">
                   <CardTitle className="text-sm">Total Viewers</CardTitle>
                 </CardHeader>
-                <CardContent className="flex items-center justify-center">
+                <CardContent className="flex items-center p-3">
                   <span className="text-xl font-semibold">10,234</span>
                 </CardContent>
               </Card>
@@ -110,14 +120,21 @@ export default function Dashboard() {
           <div className="col-span-1">
             <div className="grid grid-cols-1 gap-8">
               <Card>
-                <CardHeader>
+                <CardHeader className="flex flex-row justify-between ">
                   <CardTitle>My content</CardTitle>
+                  <Link
+                    href="#"
+                    className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                    prefetch={false}
+                  >
+                    View All
+                  </Link>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                       <img
-                        src="/placeholder.svg"
+                        src={photo1}
                         width={80}
                         height={45}
                         alt="Content"
@@ -132,7 +149,7 @@ export default function Dashboard() {
                     </div>
                     <div className="flex items-center gap-4">
                       <img
-                        src="/placeholder.svg"
+                        src={photo2}
                         width={80}
                         height={45}
                         alt="Content"
@@ -147,7 +164,7 @@ export default function Dashboard() {
                     </div>
                     <div className="flex items-center gap-4">
                       <img
-                        src="/placeholder.svg"
+                        src={photo3}
                         width={80}
                         height={45}
                         alt="Content"
@@ -164,16 +181,24 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
             </div>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="m-2"></div>
+            <div className="grid grid-cols-1 gap-8">
               <Card>
-                <CardHeader>
+                <CardHeader className="flex flex-row justify-between ">
                   <CardTitle>Famous Contents</CardTitle>
+                  <Link
+                    href="#"
+                    className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                    prefetch={false}
+                  >
+                    View All
+                  </Link>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                       <img
-                        src="/placeholder.svg"
+                        src={photo1}
                         width={80}
                         height={45}
                         alt="Content"
@@ -188,7 +213,7 @@ export default function Dashboard() {
                     </div>
                     <div className="flex items-center gap-4">
                       <img
-                        src="/placeholder.svg"
+                        src={photo2}
                         width={80}
                         height={45}
                         alt="Content"
@@ -203,7 +228,7 @@ export default function Dashboard() {
                     </div>
                     <div className="flex items-center gap-4">
                       <img
-                        src="/placeholder.svg"
+                        src={photo3}
                         width={80}
                         height={45}
                         alt="Content"
@@ -226,16 +251,17 @@ export default function Dashboard() {
     </>
   );
 }
-function PopulateWallets(wallets) {
-  const array = wallets.wallets;
-  const arrays = Object.values(array);
-  const finalarray = arrays[0];
-  console.log(finalarray);
+function PopulateWallets({ wallets }) {
+  if (!wallets || Object.keys(wallets).length === 0) {
+    return <div>No wallets found.</div>;
+  }
 
-  return finalarray.map((object) => (
-    <div key={object.network_name}>
-      <div className="font-medium">{object.network_name} </div>
-      <div className="text-sm text-muted-foreground">{object.address}</div>
+  const walletsArray = Object.values(wallets)[0];
+
+  return walletsArray.map((wallet) => (
+    <div key={wallet.address}>
+      <div className="font-medium">{wallet.network_name}</div>
+      <div className="text-sm text-muted-foreground">{wallet.address}</div>
     </div>
   ));
 }
