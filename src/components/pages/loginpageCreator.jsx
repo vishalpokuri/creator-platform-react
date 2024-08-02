@@ -90,16 +90,6 @@ function LoginPageCreator() {
     });
   };
 
-  const fetchGoogleUserInfo = async (idToken) => {
-    const response = await fetch(
-      "https://www.googleapis.com/oauth2/v3/userinfo",
-      {
-        headers: { Authorization: `Bearer ${idToken}` },
-      }
-    );
-    return await response.json();
-  };
-
   return (
     <>
       <section className="flex">

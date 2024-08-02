@@ -16,6 +16,7 @@ export const ProfileContext = React.createContext();
 
 const OKTO_CLIENT_API = " fdf89bfd-7097-490b-b782-9f949fa6c1aa";
 function App() {
+  localStorage.setItem("userProfile", null);
   const [profile, setProfile] = useState(null);
   useEffect(() => {
     // Check if profile data exists in localStorage
