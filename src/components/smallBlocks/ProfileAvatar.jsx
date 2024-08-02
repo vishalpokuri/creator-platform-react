@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ProfileContext } from "../../App"; // Adjust the import path as needed
+import { ProfileContext } from "../../App";
 function ProfileAvatar() {
   const { profile } = useContext(ProfileContext);
 

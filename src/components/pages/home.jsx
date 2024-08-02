@@ -152,6 +152,7 @@ function Home() {
               excited to have you join our vibrant community and unlock new
               opportunities.
             </p>
+
             <div className="flex justify-center gap-4">
               <Button onClick={handleSignupClickcreator}>
                 Join as a Creator

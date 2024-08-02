@@ -11,12 +11,14 @@ import LoginPageReader from "./components/pages/loginpageReader";
 import Creators from "./components/pages/topCreators";
 import Trending from "./components/pages/trending";
 import Header from "./components/pages/header";
+import Dashboard from "./components/pages/Dashboard";
 
 export const ProfileContext = React.createContext();
 
 const OKTO_CLIENT_API = " fdf89bfd-7097-490b-b782-9f949fa6c1aa";
 function App() {
   localStorage.setItem("userProfile", null);
+  console.log(localStorage.getItem("userProfile"));
   const [profile, setProfile] = useState(null);
   useEffect(() => {
     // Check if profile data exists in localStorage
@@ -48,6 +50,7 @@ function App() {
                 <Route path="/top-creators" element={<Creators />} />
                 <Route path="/trending" element={<Trending />} />
                 <Route path="/home" element={<HomePageLogin />} />
+                <Route path="/dashboard" element={<Dashboard />} />
               </Routes>
             </main>
           </div>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useOkto } from "okto-sdk-react";
+import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
 function HomePageLogin() {
   console.log("homepage rendered");
   const [userDetails, setUserDetails] = useState(null);
@@ -25,7 +27,10 @@ function HomePageLogin() {
   const [orderData, setOrderData] = useState({
     order_id: "",
   });
-
+  const navigate = useNavigate();
+  function handleNavigate() {
+    navigate("/dashboard");
+  }
   const fetchUserDetails = async () => {
     try {
       const details = await getUserDetails();
@@ -47,6 +52,7 @@ function HomePageLogin() {
   const fetchWallets = async () => {
     try {
       const walletsData = await createWallet();
+      localStorage.setItem("wallets", walletsData);
       console.log(walletsData);
       setWallets(walletsData);
       setActiveSection("wallets");
@@ -126,6 +132,9 @@ function HomePageLogin() {
         </button>
         <button style={buttonStyle} onClick={fetchWallets}>
           View Wallets
+        </button>
+        <button>
+          <Button onClick={handleNavigate}></Button>
         </button>
       </div>
       {activeSection === "userDetails" && userDetails && (
