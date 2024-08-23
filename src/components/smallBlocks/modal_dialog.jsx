@@ -7,6 +7,7 @@ import {
 } from "../ui/Dialog";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
 
 export default function CreateModal() {
   const [open, setOpen] = useState(false);
@@ -37,12 +38,16 @@ export default function CreateModal() {
           </DialogTitle>
         </DialogHeader>
         <div className="flex flex-col gap-4 py-4">
-          <Button onClick={handleAppend} className="w-full">
-            Append from Other websites
-          </Button>
-          <Button onClick={handleCreate} className="w-full">
-            Create from Scratch
-          </Button>
+          <Link to="/addconent-external">
+            <Button onClick={handleAppend} className="w-full">
+              Append from Other websites
+            </Button>
+          </Link>
+          <Link to="/addconent-editor">
+            <Button onClick={handleCreate} className="w-full">
+              Create from Scratch
+            </Button>
+          </Link>
         </div>
       </DialogContent>
     </Dialog>

@@ -4,6 +4,10 @@ import Home from "./components/pages/home";
 import { OktoProvider, BuildType } from "okto-sdk-react";
 import Footer from "./components/ui/footer";
 import HomePageLogin from "./components/pages/redirectpageafterlogin";
+import {
+  AddContentEditor,
+  AddContentExternal,
+} from "./components/pages/Addcontentscratch";
 // import { useNavigate } from "react-router-dom";
 import "./App.css";
 import LoginPageCreator from "./components/pages/loginpageCreator";
@@ -52,6 +56,14 @@ function App() {
                 <Route path="/home" element={<HomePageLogin />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/j23oi2a8j-089afa3" element={<SamplePost />} />
+                <Route
+                  path="/addconent-external"
+                  element={<AddContentExternal />}
+                />
+                <Route
+                  path="/addconent-editor"
+                  element={<AddContentEditor />}
+                />
               </Routes>
             </main>
           </div>
