@@ -13,6 +13,7 @@ import photo3 from "../images/photo4.avif";
 import { useOkto } from "okto-sdk-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { ProfileContext } from "../../App";
+import CreateModal from "../smallBlocks/modal_dialog";
 export default function Dashboard() {
   const { profile } = useContext(ProfileContext);
   const { getWallets } = useOkto();
@@ -58,9 +59,12 @@ export default function Dashboard() {
                       <CardDescription>@vishal_pok</CardDescription>
                     </div>
                   </CardHeader>
-                  <CardHeader>
-                    <CardTitle>🖌️🖼️ Creator</CardTitle>
-                  </CardHeader>
+                  <div className="grid gap-1">
+                    <CardHeader>
+                      <CardTitle>🖌️🖼️ Creator</CardTitle>
+                    </CardHeader>
+                    <CreateModal />
+                  </div>
                 </div>
                 <CardContent>
                   <div className="grid row-start-1 col-start-1 row-end col-end-4 gap-4">

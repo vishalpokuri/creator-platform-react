@@ -1,3 +1,4 @@
+
 import React, {useMemo} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/pages/home';
@@ -22,6 +23,7 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
+
 
 export const ProfileContext = React.createContext();
 
@@ -52,6 +54,7 @@ const wallets = useMemo(
   };
 
   return (
+
       <ProfileContext.Provider value={{ profile, updateProfile }}>
         <ConnectionProvider endpoint={endpoint}>
         <WalletProvider wallets={wallets} autoConnect>
