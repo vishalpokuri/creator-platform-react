@@ -1,17 +1,25 @@
-import React from 'react'
-import {WalletModalProvider,WalletDisconnectButton,WalletMultiButton} from '@solana/wallet-adapter-react-ui';
-import { useWallet } from '@solana/wallet-adapter-react';
-import '@solana/wallet-adapter-react-ui/styles.css';
-
+import React, { useEffect } from "react";
+import {
+  WalletDisconnectButton,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
+import { useNavigate } from "react-router-dom";
+import { useWallet } from "@solana/wallet-adapter-react";
+import "@solana/wallet-adapter-react-ui/styles.css";
 
 const AppBar = () => {
-    const {publickey} = useWallet();
+  const { publicKey } = useWallet();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (publicKey) {
+      navigate("/onboarding"); // Redirect to the username creation section
+    }
+  }, [publicKey, navigate]);
 
   return (
-    <div>
-        {publickey ? <WalletDisconnectButton /> : <WalletMultiButton />}
-    </div>
-  )
-}
+    <div>{publicKey ? <WalletDisconnectButton /> : <WalletMultiButton />}</div>
+  );
+};
 
-export default AppBar
+export default AppBar;

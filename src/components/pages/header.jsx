@@ -4,13 +4,14 @@ import PaletteIcon from "../ui/paletteicon";
 import ProfileAvatar from "../smallBlocks/ProfileAvatar";
 import AppBar from "./AppBar";
 
-
 const Header = () => {
-
   return (
-    <header className="sticky top-0 z-40 border-b bg-background">
+    <header className="sticky top-4 z-40 border-b bg-background m-4 rounded-xl shadow-lg ">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link to="/" className="flex items-center gap-2 text-lg font-semibold">
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-lg font-semibold min-w-[206px]"
+        >
           <PaletteIcon className="h-6 w-6" />
           <span>Clatform</span>
         </Link>
@@ -39,7 +40,6 @@ const Header = () => {
             Connect Wallet 
           </Link> */}
           <AppBar />
-
         </div>
       </div>
     </header>

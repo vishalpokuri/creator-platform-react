@@ -5,12 +5,15 @@ import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-r
 //import { PhantomWalletAdapter, SolletWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import * as web3 from '@solana/web3.js';
+import { SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 
 const WalletContextProvider = () => {
   const endpoint = web3.clusterApiUrl('devnet');
 
   const wallets = useMemo(() => [
     new PhantomWalletAdapter(),
+    new SolflareWalletAdapter(),
+    new 
   ], []);
 
   return (

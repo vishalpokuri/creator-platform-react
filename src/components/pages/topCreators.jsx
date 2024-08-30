@@ -9,9 +9,9 @@ import ev from "../images/ev.webp";
 import medium from "../images/mediumicon.png";
 export default function Creators() {
   return (
-    <>
+    <div className="bg-softbackground">
       <div className="flex">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl  m-auto mt-6">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl m-auto mt-6">
           Here are our top creators
         </h2>
       </div>
@@ -317,7 +317,7 @@ export default function Creators() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }
 
