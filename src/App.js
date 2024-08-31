@@ -19,7 +19,7 @@ import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
-import { Onboarding } from "./components/pages/Onboarding";
+import Onboarding from "./components/pages/Onboarding";
 
 export const ProfileContext = React.createContext();
 
