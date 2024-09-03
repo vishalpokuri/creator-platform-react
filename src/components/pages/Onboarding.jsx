@@ -1,5 +1,5 @@
 import { Button } from "../ui/button";
-
+import { InstagramIcon, TwitterIcon } from "../ui/icons";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
@@ -7,6 +7,8 @@ import { Textarea } from "../ui/textarea";
 import { Checkbox } from "../ui/checkbox";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
+
 export default function Onboarding() {
   const [step, setStep] = useState(1);
   const [username, setUsername] = useState("");
@@ -14,20 +16,38 @@ export default function Onboarding() {
   const [pfp, setPfp] = useState(null);
   const [bio, setBio] = useState("");
   const [twitter, setTwitter] = useState("");
-  const [linkedin, setLinkedin] = useState("");
-  const [github, setGithub] = useState("");
   const [instagram, setInstagram] = useState("");
+  const [isChecked, setisChecked] = useState(false);
 
   const handleNext = () => setStep(2);
   const handleBack = () => setStep(1);
-
+  const walletaddress = "wallet1";
   const handlePfpUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       setPfp(URL.createObjectURL(file));
     }
   };
+  //fetching walletaddress
+  async function handleUpload() {
+    const user = {
+      username,
+      aliasname,
+      walletaddress,
+      bio,
+      socials: { instagram, twitter },
+    };
 
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/onboarding",
+        user
+      );
+      console.log("User added successfully:", response.data);
+    } catch (error) {
+      console.error("Error adding user:", error);
+    }
+  }
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Role Selection Step */}
@@ -85,7 +105,9 @@ export default function Onboarding() {
                   id="username"
                   placeholder="Enter username"
                   value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
                 />
 
                 <InputField
@@ -93,7 +115,9 @@ export default function Onboarding() {
                   id="alias"
                   placeholder="Enter alias"
                   value={aliasname}
-                  onChange={(e) => setAliasname(e.target.value)}
+                  onChange={(e) => {
+                    setAliasname(e.target.value);
+                  }}
                 />
 
                 <div className="grid gap-2">
@@ -127,16 +151,19 @@ export default function Onboarding() {
                 <SocialMediaSection
                   twitter={twitter}
                   setTwitter={setTwitter}
-                  linkedin={linkedin}
-                  setLinkedin={setLinkedin}
-                  github={github}
-                  setGithub={setGithub}
                   instagram={instagram}
                   setInstagram={setInstagram}
                 />
 
                 <div className="flex items-center gap-2">
-                  <Checkbox id="terms" />
+                  <Checkbox
+                    checked={isChecked}
+                    onCheckedChange={(prev) => {
+                      setisChecked(prev);
+                      console.log(prev);
+                    }}
+                    id="terms"
+                  />
                   <Label htmlFor="terms">
                     I agree to the{" "}
                     <Link to="#" className="underline">
@@ -151,7 +178,7 @@ export default function Onboarding() {
               <Button variant="outline" onClick={handleBack}>
                 Back
               </Button>
-              <Button>All Good!</Button>
+              <Button onClick={handleUpload}>All Good!</Button>
             </div>
           </div>
         </div>
@@ -203,23 +230,12 @@ const SocialMediaSection = ({
         value={twitter}
         onChange={(e) => setTwitter(e.target.value)}
       />
-      <SocialMediaInput
-        Icon={LinkedinIcon}
-        placeholder="LinkedIn profile"
-        value={linkedin}
-        onChange={(e) => setLinkedin(e.target.value)}
-      />
+
       <SocialMediaInput
         Icon={InstagramIcon}
         placeholder="Instagram username"
         value={instagram}
         onChange={(e) => setInstagram(e.target.value)}
-      />
-      <SocialMediaInput
-        Icon={GithubIcon}
-        placeholder="GitHub username"
-        value={github}
-        onChange={(e) => setGithub(e.target.value)}
       />
     </div>
   </div>
@@ -231,84 +247,3 @@ const SocialMediaInput = ({ Icon, placeholder, value, onChange }) => (
     <Input placeholder={placeholder} value={value} onChange={onChange} />
   </div>
 );
-
-function TwitterIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-    </svg>
-  );
-}
-
-function LinkedinIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-
-function InstagramIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  );
-}
-
-function GithubIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-      <path d="M9 18c-4.51 2-5-2-7-2" />
-    </svg>
-  );
-}
