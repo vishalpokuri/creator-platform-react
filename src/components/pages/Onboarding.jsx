@@ -6,11 +6,14 @@ import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Textarea } from "../ui/textarea";
 import { Checkbox } from "../ui/checkbox";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useWallet } from "@solana/wallet-adapter-react";
 import axios from "axios";
 
 export default function Onboarding() {
   const [step, setStep] = useState(1);
+  const [type, setType] = useState("");
   const [username, setUsername] = useState("");
   const [aliasname, setAliasname] = useState("");
   const [pfp, setPfp] = useState(null);
@@ -18,33 +21,44 @@ export default function Onboarding() {
   const [twitter, setTwitter] = useState("");
   const [instagram, setInstagram] = useState("");
   const [isChecked, setisChecked] = useState(false);
+  const navigate = useNavigate();
+  const { publicKey } = useWallet();
 
   const handleNext = () => setStep(2);
   const handleBack = () => setStep(1);
-  const walletaddress = "wallet1";
+  const walletaddress = publicKey?.toBase58();
+
   const handlePfpUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       setPfp(URL.createObjectURL(file));
+      
     }
   };
   //fetching walletaddress
   async function handleUpload() {
     const user = {
-      username,
-      aliasname,
-      walletaddress,
+      type,
+      userName: username,
+      aliasName: aliasname,
+      walletAddress: walletaddress,
       bio,
       socials: { instagram, twitter },
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/onboarding",
+      console.log(pfp);
+      const response = await axios.post("http://localhost:5000/onboarding",
         user
       );
       console.log("User added successfully:", response.data);
+      
+      if (response.data) {
+        navigate("/dashboard");
+      }
+      
     } catch (error) {
+  
       console.error("Error adding user:", error);
     }
   }
@@ -68,14 +82,20 @@ export default function Onboarding() {
             <div className="flex flex-row justify-around font-semibold text-xl">
               <div
                 className="rounded-md m-4 bg-[#ff8c00c2] w-56 h-48 p-8 hover:bg-[#ff8c00] flex flex-col justify-center cursor-pointer"
-                onClick={handleNext}
+                onClick={() => {
+                  setType("Creator");
+                  handleNext();
+                }}
               >
                 <div className="flex items-center justify-center">⌨️🖊️</div>
                 <p className="text-black text-center mt-4">Creator</p>
               </div>
               <div
                 className="rounded-md m-4 bg-[#91e140d4] w-56 h-48 p-8 flex flex-col justify-center hover:bg-[#91e140] cursor-pointer"
-                onClick={handleNext}
+                onClick={() => {
+                  setType("Reader");
+                  handleNext();
+                }}
               >
                 <div className="flex items-center justify-center">📖📚</div>
                 <p className="text-center mt-4 text-black">Reader</p>

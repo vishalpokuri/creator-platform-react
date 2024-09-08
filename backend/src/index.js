@@ -1,8 +1,8 @@
 const User = require("../models/Users");
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyparser = require("body-parser");
+
 
 const app = express();
 const PORT = 5000;
@@ -11,20 +11,16 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyparser.json());
 
-mongoose
-  .connect()
-  .then(() => console.log("Connected to mongodb"))
-  .catch((err) => console.log(err));
+
 
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
 
 app.post("/onboarding", async (req, res) => {
   const {
+    type,
     userName,
     aliasName,
     walletAddress,
@@ -34,6 +30,7 @@ app.post("/onboarding", async (req, res) => {
 
   try {
     const newUser = new User({
+      type,
       userName,
       aliasName,
       walletAddress,
@@ -46,4 +43,9 @@ app.post("/onboarding", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error adding user", error });
   }
+});
+
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

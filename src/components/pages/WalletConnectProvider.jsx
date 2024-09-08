@@ -13,7 +13,6 @@ const WalletContextProvider = () => {
   const wallets = useMemo(() => [
     new PhantomWalletAdapter(),
     new SolflareWalletAdapter(),
-    new 
   ], []);
 
   return (
